@@ -651,7 +651,7 @@ it('Allows selection of namecoin', function(done) {
         phrase: "abandon abandon ability",
         firstAddress: "Mw2vK2Bvex1yYtYF6sfbEg2YGoUc98YUD2",
         firstPubKey: "0398066486fe87cbcb9da8e29d180b44937b6c43ad1ec4d3bddd77b7905765937e",
-        firstPrivKey: "TkJvbqVdNnGsCtFaV2nE8x3qqhYnYriRkGAB4747cEDRg9VUKKiz",
+        firstPrivKey: "L4A8sSkrGndiXyZdj6Fnju8Wu76s96cdHHmPxV3C5M2R2w4GVNco",
     };
     testNetwork(done, params);
 });
@@ -914,16 +914,6 @@ it('Allows selection of Aryacoin', function(done) {
         firstAddress: "Abr6gX25KaU9BpwD34UfsL3A4n89NvYYSf",
         firstPubKey: "03973c0669f332a69e8f0661ffddc7fd86dd7fdb768a40608fcbf0efceebf900e0",
         firstPrivKey: "PNukdY6bBGJhFDnJGeRFrJ5ptj3WD1xZHbPv8ubjMknFz2L6sZFi",
-    };
-    testNetwork(done, params);
-});
-it('Allows selection of Cosmos Hub', function(done) {
-    var params = {
-        selectText: "ATOM - Cosmos Hub",
-        phrase: "abandon abandon ability",
-        firstAddress: "cosmos17mkch9syem8gtf6wh7p38thdgav6dwezpkylny",
-        firstPubKey: "cosmospub1addwnpepq0sgn66ty4suk5vx3hsmxxqd5z3amegqwlu59funrzyz5u8r9758qhl84ys",
-        firstPrivKey: "zUnETPxmE2vkHzLHTAlO9wg8PL/GEEBc1I4yVwvSV8M=",
     };
     testNetwork(done, params);
 });
@@ -1645,16 +1635,6 @@ it('Allows selection of RevolutionVR', function(done) {
     };
     testNetwork(done, params);
 });
-it('Allows selection of Ritocoin', function(done) {
-    var params = {
-        selectText: "RITO - Ritocoin",
-        phrase: "abandon abandon ability",
-        firstAddress: "BMbHdwDiuaZh4ATp8Xapf4srv3swzAGgkf",
-        firstPubKey: "036f5f55dc37fa97294a2a5ae4d92735d4392d4405cbbebebf2d70d5d6781be622",
-        firstPrivKey: "Mdaumz3494kxCeiEBame4ZBzjtTQ5mYzD8notv2EBW8FcNy3PiYd",
-    };
-    testNetwork(done, params);
-});
 it('Allows selection of Rubycoin', function(done) {
     var params = {
         selectText: "RBY - Rubycoin",
@@ -2344,17 +2324,6 @@ it('Allows selection of TRX on Tron', function(done) {
         firstAddress: "TA891Fu7vVz595BGQpNX2MCzr7yBcxuoC7",
         firstPubKey: "0337bbb060e6166066f7f9e59e52f67bc23a6c9d0cbc815b82b6d89112444842e7",
         firstPrivKey: "3a8fbd0379a815764979de86a3fcda759cb62d49e784e7b2a9a03206c90cfae2",
-    };
-    testNetwork(done, params);
-});
-
-it('Allows selection of ZooBlockchain', function(done) {
-    var params = {
-        selectText: "ZBC - ZooBlockchain",
-        phrase: "shy invest oxygen real lunar moral merge corn program air affair amazing dove imitate combine solve library fresh case alcohol pole question act thing",
-        firstAddress: "ZBC_MGEZVH3U_SXPCBHTU_KSWDPQ4X_K6MSI3VR_CQAYMTLC_RXUMM3DJ_LFABCAXA",
-        firstPubKey: "61899a9f7495de209e7454ac37c3975799246eb11401864d628de8c66c695940",
-        firstPrivKey: "adb11e79068fa7366ec4f5963ad57115d666b1ad2b369b92d962563adf7dd48b",
     };
     testNetwork(done, params);
 });
@@ -5119,28 +5088,6 @@ it('Generates ethereum addresses from a public key', function(done) {
             expect(address).toBe("0x1Bd54748903438C7E386b4a3fCbe16237A316a98");
             done();
         });
-    });
-});
-
-// https://github.com/iancoleman/bip39/issues/469
-it('Generates ethereum private keys with the correct padding', function(done) {
-  var phrase = "flip vicious divorce angle toward say derive blue refuse load word creek once expire bounce";
-  let withoutPadding = "0x53121fc5d193e623d2dbf43b2a96640bbed16bd530947fff8dda12f1aec828";
-  let withPadding = "0x0053121fc5d193e623d2dbf43b2a96640bbed16bd530947fff8dda12f1aec828";
-  let skIndex = 15;
-  driver.findElement(By.css('.phrase'))
-      .sendKeys(phrase);
-    selectNetwork('ETH - Ethereum');
-    driver.sleep(generateDelay).then(function() {
-        driver.findElements(By.css(".privkey"))
-            .then(function(els) {
-                els[skIndex].getText()
-                    .then(function(sk) {
-                        expect(sk).toBe(withPadding);
-                        expect(sk).not.toBe(withoutPadding);
-                        done();
-                    });
-            })
     });
 });
 

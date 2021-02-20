@@ -1,17 +1,3 @@
-# 0.5.2
-
-* Show ethereum private keys with correct padding
-
-# 0.5.1
-
-* Add Portuguese language
-* Add BIP85
-* Add Ritocoin
-* Add Cosmos Hub
-* Add ZooBC
-* Add Zcoin/Firo rebranded coin
-* Update Namecoin WIF
-
 # 0.5.0
 
 * Remove bias from base 6 and base 10 entropy
